@@ -400,7 +400,7 @@ public class IoDatos {
 			pw = new PrintWriter(fw);
 			for (int i = 0; i < vArmas.length; i++) {
 				if (vArmas[i] != null) {
-
+					pw.println(vArmas);
 				}
 			}
 		} catch (FileNotFoundException e) {

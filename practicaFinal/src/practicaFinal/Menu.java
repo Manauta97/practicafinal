@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Menu {
 
+	/*
+	 * pinta el menu y lee la opcion
+	 */
 	public static int pintaMenu() {
 		Scanner leer = new Scanner(System.in);
 		boolean bandera = true;
@@ -42,6 +45,9 @@ public class Menu {
 		return opc;
 	}
 
+	/*
+	 * pinta el menu y lee la opcion
+	 */
 	public static int MenuDarAltaAgente() {
 		Scanner leer = new Scanner(System.in);
 		boolean bandera = true;

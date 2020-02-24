@@ -12,6 +12,10 @@ import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/*
+ * @autor Raúl Manauta Jarque
+ * @version 1.0
+ */
 public class IoDatos {
 
 	public IoDatos() {
@@ -163,7 +167,10 @@ public class IoDatos {
 
 		return vArmas;
 	}
-
+/*
+ * introduces un sueldo y te muestra los agentes que tienen mas de ese sueldo 
+ */
+ 
 	public static void comprobarSueldo(Agentes[] vAgentes) {
 
 		Scanner leer = new Scanner(System.in);
@@ -259,7 +266,9 @@ public class IoDatos {
 		}
 
 	}
-
+/*
+ * crea ficheros binarios en los que no se puede leer el contenido
+ */
 	public static void encriptarArmas() {
 		File fichero = new File("datos/armas.txt");
 		File ficheroEncriptado = new File("datos/armas.dat");
@@ -336,7 +345,9 @@ public class IoDatos {
 
 		}
 	}
-
+	/*
+	 * borra los fichero encriptados y crea los ficheros en los que se puede leer el contenido
+	 */
 	public static void desencriptarArmas() {
 		File fichero = new File("datos/armas.txt");
 		File ficheroencriptado = new File("datos/armas.dat");
@@ -419,4 +430,168 @@ public class IoDatos {
 		}
 
 	}
+	
+	public static void encriptarPisos() {
+		File fichero = new File("datos/pisos.txt");
+		File ficheroEncriptado = new File("datos/pisos.dat");
+		FileOutputStream fout = null;
+		ObjectOutputStream out = null;
+		String[] vPisos = new String[20];
+
+		if (!ficheroEncriptado.exists()) {
+			try {
+				ficheroEncriptado.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		if (!fichero.exists()) {
+			try {
+				fichero.createNewFile();
+				return;
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		try {
+			// Leer texto scanner
+			Scanner leer = new Scanner(fichero);
+			while (leer.hasNextLine()) {
+				for (int i = 0; i < vPisos.length; i++) {
+					if (vPisos[i] == null) {
+						vPisos[i] = leer.nextLine();
+						break;
+					}
+				}
+			}
+			leer.close();
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+
+		}
+
+		// Guardar el vector a fichero binario
+
+		try {
+			fout = new FileOutputStream(ficheroEncriptado);
+			out = new ObjectOutputStream(fout);
+
+			for (int i = 0; i < vPisos.length; i++) {
+				if (vPisos[i] != null) {
+					out.writeObject(vPisos[i]);
+
+				}
+			}
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (fichero.exists()) {
+
+			System.out.println("El fichero se ha borrado.");
+			fichero.delete();
+
+		}
+	}
+	
+	
+	public static void desencriptarPisos() {
+		File fichero = new File("datos/pisos.txt");
+		File ficheroencriptado = new File("datos/pisos.dat");
+		FileInputStream fiou = null;
+		ObjectInputStream oi = null;
+		String[] vPisos = new String[20];
+		FileWriter fw = null;
+		PrintWriter pw = null;
+		
+		if (!ficheroencriptado.exists()) {
+			try {
+				ficheroencriptado.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		if (!fichero.exists()) {
+			try {
+				fichero.createNewFile();
+				return;
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		try {
+			fiou = new FileInputStream(ficheroencriptado);
+			oi = new ObjectInputStream(fiou);
+
+			for (int i = 0; i < vPisos.length; i++) {
+				if (vPisos[i] == null) {
+					vPisos[i] = (String) oi.readObject();
+					break;
+				}
+
+			}
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				oi.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		try {
+			Scanner leer = new Scanner(fichero);
+			fw = new FileWriter(fichero);
+			pw = new PrintWriter(fw);
+			for (int i = 0; i < vPisos.length; i++) {
+				if (vPisos[i] != null) {
+					pw.println(vPisos);
+				}
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		if (ficheroencriptado.exists()) {
+
+			ficheroencriptado.delete();
+			System.out.println("El fichero desencriptado");
+
+		}
+
+	}
+	
+	
 }

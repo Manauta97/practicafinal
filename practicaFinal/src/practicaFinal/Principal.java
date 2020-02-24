@@ -4,6 +4,14 @@ import java.io.ObjectInputStream.GetField;
 import java.util.Scanner;
 
 public class Principal {
+	/*
+	 * @autor: Raúl Manuta
+	 * @Version: 1.0;
+	 *
+	 */
+/*
+ * este método se encarga de iniciar el programa y mostrar el menu con sus opciones
+ */
 	public static void main(String[] args) {
 		Scanner leer = new Scanner(System.in);
 		int opc = 0;
@@ -99,6 +107,7 @@ public class Principal {
 				break;
 			case 6:
 				IoDatos.encriptarArmas();
+				IoDatos.encriptarPisos();
 				break;
 			case 7:
 				IoDatos.desencriptarArmas();

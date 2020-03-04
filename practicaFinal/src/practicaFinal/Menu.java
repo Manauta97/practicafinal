@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Menu {
 
 	/*
-	 * pinta el menu y lee la opcion
+	 * pinta el menu principal y lee la opcion
 	 */
 	public static int pintaMenu() {
 		Scanner leer = new Scanner(System.in);
@@ -24,8 +24,8 @@ public class Menu {
 					System.out.println("* 3. Dar de alta un nuevo piso         *");
 					System.out.println("* 4. Dar de alta una nueva arma        *");
 					System.out.println("* 5. Dar de alta un nuevo agente       *");
-					System.out.println("* 6. Encriptar la información          *");
-					System.out.println("* 7. Desencriptar la información       *");
+					System.out.println("* 6. Encriptar la informaciÃ³n          *");
+					System.out.println("* 7. Desencriptar la informaciÃ³n       *");
 					System.out.println("* 8. Salir                             *");
 					System.out.println("**************************************");
 					opc = leer.nextInt();
@@ -46,7 +46,7 @@ public class Menu {
 	}
 
 	/*
-	 * pinta el menu y lee la opcion
+	 * pinta el menu de creacion de agente y lee la opcion selecionada
 	 */
 	public static int MenuDarAltaAgente() {
 		Scanner leer = new Scanner(System.in);

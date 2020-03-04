@@ -1,7 +1,7 @@
 package practicaFinal;
 
 import java.util.Arrays;
-
+/*creacion de la clase agentes de espionaje y sus atributos*/
 public class AgenteEspionaje extends Agentes {
 	private String[] pisos;
 

@@ -2,7 +2,12 @@ package practicaFinal;
 
 import java.util.Arrays;
 import java.util.Iterator;
+/*
+ * @autor Raúl Manauta Jarque
+ * @version 1.0
+ */
 
+/*creacion de la clase agentes y sus atributos*/
 public class Agente007 extends Agentes {
 	private int contadorMuertes;
 	private String[] armas;

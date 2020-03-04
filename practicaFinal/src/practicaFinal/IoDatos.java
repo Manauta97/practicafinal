@@ -13,14 +13,16 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 /*
- * @autor Ra�l Manauta Jarque
+ * @autor Raúl Manauta Jarque
  * @version 1.0
  */
 public class IoDatos {
 
 	public IoDatos() {
 	}
-
+/*
+este método crea y guarda un nuevo piso en el fichero pisos.txt
+*/
 	public static void guardarDatosPisos() {
 		File fichero = new File("datos/pisos.txt");
 		FileWriter fw = null;
@@ -61,7 +63,9 @@ public class IoDatos {
 	}
 
 	public static String[] leerPisos() {
-
+/*
+lee los pisos guardados en el fichero
+*/
 		File fichero = new File("datos/pisos.txt");
 		String[] vPisos = new String[20];
 
@@ -101,6 +105,7 @@ public class IoDatos {
 	}
 
 	public static void guardarNuevaArma() {
+/* crea el fichero armas y guarda una arma nueva y la añade al fichero*/
 		File fichero = new File("datos/armas.txt");
 		FileWriter fw = null;
 		PrintWriter pw = null;
@@ -137,6 +142,8 @@ public class IoDatos {
 	}
 
 	public static String[] lecturaFicheroArmas() {
+		
+	/*lee el fichero de armas.txt*/
 		String[] vArmas = new String[20];
 		File fichero = new File("datos/armas.txt");
 
@@ -189,6 +196,7 @@ public class IoDatos {
 	}
 
 	public static Agentes[] leerAgentesFicheros() {
+/*lee el fichero de agentes.dat*/
 		File fichero = new File("datos/agentes.dat");
 		FileInputStream fi = null;
 		ObjectInputStream leer = null;
@@ -233,7 +241,7 @@ public class IoDatos {
 	}
 
 	public static void escribirAgentesFichero(Agentes[] vAgentes) {
-
+/*añade un agente al fichero*/
 		File fichero = new File("datos/agentes.dat");
 		FileOutputStream fout = null;
 		ObjectOutputStream escribir = null;
@@ -432,6 +440,8 @@ public class IoDatos {
 	}
 	
 	public static void encriptarPisos() {
+	/*lee el fichero pisos y los encripta*/	
+		
 		File fichero = new File("datos/pisos.txt");
 		File ficheroEncriptado = new File("datos/pisos.dat");
 		FileOutputStream fout = null;
@@ -510,6 +520,8 @@ public class IoDatos {
 	
 	
 	public static void desencriptarPisos() {
+		
+		/*el fichero encriptado guardamos los datos en un vector y lo pasa a fichero de texto para poder leerlo*/
 		File fichero = new File("datos/pisos.txt");
 		File ficheroencriptado = new File("datos/pisos.dat");
 		FileInputStream fiou = null;

@@ -1,7 +1,7 @@
 package practicaFinal;
 
 import java.util.Scanner;
-
+/*creacion de la clase agentes y sus atributos*/
 public class Agentes {
 	private String nombre;
 	private int edad;
@@ -50,7 +50,7 @@ public class Agentes {
 
 	@Override
 	public String toString() {
-		return "Nombre: " + nombre + "\n" + edad + " años " + "\n" + "Salario: " + salario + "\n" + "Dirección: "
+		return "Nombre: " + nombre + "\n" + edad + " aÃ±os " + "\n" + "Salario: " + salario + "\n" + "DirecciÃ³n: "
 				+ direccion;
 	}
 

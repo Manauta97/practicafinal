@@ -1,19 +1,19 @@
 package practicaFinal;
 
 import java.util.Scanner;
-
+/*creacion de la clase superintentendente y sus atributos*/
 public class SuperIntendente extends Agentes {
-	private int años;
+	private int aÃ±os;
 
-	public SuperIntendente(String nombre, int edad, String direccion, double salario, int años) {
+	public SuperIntendente(String nombre, int edad, String direccion, double salario, int aÃ±os) {
 		super(nombre, edad, direccion, salario);
-		this.años = años;
+		this.aÃ±os = aÃ±os;
 	}
 
 	@Override
 	public String toString() {
-		return "****************************\n" + "Superintendente: \n" + super.toString() + "\naños de servicio: "
-				+ años + "\n****************************";
+		return "****************************\n" + "Superintendente: \n" + super.toString() + "\naÃ±os de servicio: "
+				+ aÃ±os + "\n****************************";
 	}
 
 }
